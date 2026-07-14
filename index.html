@@ -1,90 +1,151 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Maths 3ème - Corrigés d'Exercices</title>
-    
-    <!-- SCRIPT PRINCIPAL PAYPAL (À charger une seule fois pour toute la page) -->
-    <script src="https://www.paypal.com/sdk/js?client-id=BAA7FRKxkk2hcf72Xe19ILxOWNUaWCOGnI9ouWqz7aPHx_GYQrifKFpaf2uVhEj_WRYCMCDilcBlVKAdPw&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objectif Brevet - Maths 3ème</title>
 
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; }
-        header { text-align: center; padding: 30px 10px; background: #ffffff; border-bottom: 3px solid #007bff; margin-bottom: 30px; }
-        h1 { color: #007bff; font-size: 24px; margin-bottom: 5px; }
-        
-        .section-chapitre { max-width: 900px; margin: 0 auto 40px auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .titre-chapitre { border-left: 5px solid #ff9800; padding-left: 15px; color: #2c3e50; font-size: 20px; margin-bottom: 20px; }
-        
-        .grille-exercices { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-        .carte-exercice { background: #fafafa; border: 1px solid #e0e0e0; border-radius: 6px; padding: 20px; width: 100%; max-width: 280px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
-        .carte-exercice h3 { margin-top: 0; color: #333; font-size: 16px; margin-bottom: 15px; min-height: 40px; }
-        
-        /* Conteneur PayPal pour s'assurer que le bouton s'adapte bien à la carte */
-        .zone-paiement-paypal {
-            margin-top: 10px;
-            min-height: 45px;
-        }
+  <!-- Script PayPal -->
+  <script src="https://www.paypal.com/sdk/js?client-id=BAA7FRKxkk2hcf72Xe19ILxOWNUaWCOGnI9ouWqz7aPHx_GYQrifKFpaf2uVhEj_WRYCMCDilcBlVKAdPw&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 
-        .message-securite {
-            font-size: 12px; 
-            color: #555; 
-            text-align: center; 
-            margin-top: 12px; 
-            font-style: italic;
-        }
-    </style>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #007bff, #00c6ff);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .section-chapitre {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .titre-chapitre {
+      font-size: 22px;
+      color: #2c3e50;
+      border-left: 6px solid #ff9800;
+      padding-left: 15px;
+      margin-bottom: 25px;
+    }
+    .grille-exercices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+    .carte-exercice {
+      background: #fafafa;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .carte-exercice:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .carte-exercice h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #007bff;
+    }
+    .btn-telechargement-gratuit {
+      display: inline-block;
+      background: #28a745;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-bottom: 15px;
+      transition: background 0.2s;
+    }
+    .btn-telechargement-gratuit:hover {
+      background: #218838;
+    }
+    .zone-paiement-paypal {
+      margin-top: 15px;
+      min-height: 45px;
+      padding: 10px;
+      border: 1px dashed #007bff;
+      border-radius: 6px;
+      background: #eef6ff;
+    }
+    .message-securite {
+      font-size: 12px;
+      color: #555;
+      margin-top: 12px;
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Objectif Brevet : Maths 3ème</h1>
-        <p>Corrigés détaillés des exercices pour réviser le Brevet</p>
-    </header>
+  <header>
+    <h1>Objectif Brevet : Maths 3ème</h1>
+    <p>Exercices gratuits et corrigés payants pour réussir ton brevet</p>
+  </header>
 
-    <main>
-        <section class="section-chapitre">
-            <h2 class="titre-chapitre">Chapitre 1 : Arithmétique et Fractions</h2>
-            
-            <div class="grille-exercices">
-                
-                <!-- Carte Exercice 1 (Avec votre bouton PayPal configuré) -->
-                <article class="carte-exercice">
-                    <h3>Exercice 1 : Calcul de PGCD et problèmes</h3>
-                    
-                    <!-- L'affichage du prix est géré directement par le bouton hébergé PayPal -->
-                    <div class="zone-paiement-paypal">
-                        <div id="paypal-container-LN5LVLLECTER8"></div>
-                        <script>
-                          paypal.HostedButtons({
-                            hostedButtonId: "LN5LVLLECTER8",
-                          }).render("#paypal-container-LN5LVLLECTER8")
-                        </script>
-                    </div>
+  <main>
+    <section class="section-chapitre">
+      <h2 class="titre-chapitre">Chapitre 1 : Racines carrées</h2>
 
-                    <p class="message-securite">Paiement 100% sécurisé via PayPal</p>
-                </article>
+      <div class="grille-exercices">
+        
+        <!-- Exercice Gratuit -->
+        <article class="carte-exercice">
+          <h3>Td1</h3>
+          <!-- CORRECTION ICI : Utilisation du protocole local de Koder -->
+          <a href="Td.pdf" class="btn-telechargement-gratuit">
+              📥 Télécharger gratuitement Td1
+          </a>
+        </article>
 
-                <!-- Carte Exercice 2 (À dupliquer et modifier avec un autre ID PayPal si besoin) -->
-                <article class="carte-exercice">
-                    <h3>Exercice 2 : Opérations avec les fractions</h3>
-                    
-                    <div class="zone-paiement-paypal">
-                        <!-- Exemple fictif : Remplacez cet ID par celui de votre 2ème bouton PayPal -->
-                        <div id="paypal-container-EXEMPLE2"></div>
-                        <script>
-                          paypal.HostedButtons({
-                            hostedButtonId: "LN5LVLLECTER8", // Mettez l'ID de votre second bouton ici
-                          }).render("#paypal-container-EXEMPLE2")
-                        </script>
-                    </div>
+        <!-- Corrigé Payant -->
+        <article class="carte-exercice">
+          <h3>Corrigé td1</h3>
+          
+          <div class="zone-paiement-paypal">
+              <div id="paypal-container-LN5LVLLECTER8"></div>
+              <script>
+                paypal.HostedButtons({
+                  hostedButtonId: "LN5LVLLECTER8",
+                }).render("#paypal-container-LN5LVLLECTER8")
+              </script>
+          </div>
 
-                    <p class="message-securite">Paiement 100% sécurisé via PayPal</p>
-                </article>
+          <p class="message-securite">Paiement 100% sécurisé via PayPal</p>
+        </article>
 
-            </div>
-        </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
