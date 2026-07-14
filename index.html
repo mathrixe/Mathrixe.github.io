@@ -1,151 +1,341 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Objectif Brevet - Maths 3ème</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objectif Brevet — Classe de 3ème</title>
+<style>
+  :root{
+    --ardoise:#161B33;
+    --craie:#F5F3FB;
+    --bleu:#3D6FF2;
+    --orange:#FF8A3D;
+    --vert:#12B886;
+    --violet:#9B5DE5;
+    --rose:#F5399C;
+    --jaune:#FFC93D;
+    --ligne:#E4E1F5;
+    --texte:#242138;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 8% 8%, rgba(61,111,242,0.10), transparent 42%),
+      radial-gradient(circle at 92% 18%, rgba(245,57,156,0.10), transparent 40%),
+      radial-gradient(circle at 50% 100%, rgba(18,184,134,0.08), transparent 45%),
+      var(--craie);
+    color:var(--texte);
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .titre, .matiere-titre{
+    font-family:Georgia,'Times New Roman',serif;
+  }
 
-  <!-- Script PayPal -->
-  <script src="https://www.paypal.com/sdk/js?client-id=BAA7FRKxkk2hcf72Xe19ILxOWNUaWCOGnI9ouWqz7aPHx_GYQrifKFpaf2uVhEj_WRYCMCDilcBlVKAdPw&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+/* ––––– HERO ––––– */
+header.hero{
+background:
+radial-gradient(circle at 85% -10%, rgba(255,138,61,0.35), transparent 55%),
+radial-gradient(circle at 0% 110%, rgba(61,111,242,0.35), transparent 55%),
+linear-gradient(135deg, #1A1440 0%, #161B33 55%, #0F1226 100%);
+color:var(–craie);
+padding:64px 24px 56px;
+position:relative;
+overflow:hidden;
+}
+header.hero::after{
+content:””;
+position:absolute;
+right:-60px; top:-60px;
+width:280px; height:280px;
+border:2px solid rgba(247,245,240,0.12);
+border-radius:50%;
+}
+header.hero::before{
+content:””;
+position:absolute;
+left:-40px; bottom:-90px;
+width:220px; height:220px;
+background:radial-gradient(circle, rgba(155,93,229,0.35), transparent 70%);
+border-radius:50%;
+}
+.hero-inner{
+max-width:920px;
+margin:0 auto;
+position:relative;
+z-index:1;
+}
+.eyebrow{
+font-size:13px;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:var(–jaune);
+font-weight:700;
+margin-bottom:18px;
+display:inline-block;
+background:rgba(255,201,61,0.12);
+padding:6px 14px;
+border-radius:100px;
+border:1px solid rgba(255,201,61,0.3);
+}
+h1.titre{
+font-family:Georgia,‘Times New Roman’,serif;
+font-weight:600;
+font-size:clamp(34px,6vw,56px);
+line-height:1.08;
+margin:0 0 20px;
+}
+h1.titre em{
+font-style:italic;
+background:linear-gradient(90deg, var(–orange), var(–rose));
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+.hero-msg{
+font-size:17px;
+line-height:1.6;
+max-width:560px;
+color:#C9CBE8;
+margin:0;
+}
 
-  <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f0f2f5;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: linear-gradient(135deg, #007bff, #00c6ff);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-    header p {
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    main {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-    .section-chapitre {
-      background: white;
-      border-radius: 10px;
-      padding: 25px;
-      margin-bottom: 40px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .titre-chapitre {
-      font-size: 22px;
-      color: #2c3e50;
-      border-left: 6px solid #ff9800;
-      padding-left: 15px;
-      margin-bottom: 25px;
-    }
-    .grille-exercices {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      justify-content: center;
-    }
-    .carte-exercice {
-      background: #fafafa;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 20px;
-      width: 100%;
-      max-width: 300px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-    .carte-exercice:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    }
-    .carte-exercice h3 {
-      font-size: 18px;
-      margin-bottom: 15px;
-      color: #007bff;
-    }
-    .btn-telechargement-gratuit {
-      display: inline-block;
-      background: #28a745;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-bottom: 15px;
-      transition: background 0.2s;
-    }
-    .btn-telechargement-gratuit:hover {
-      background: #218838;
-    }
-    .zone-paiement-paypal {
-      margin-top: 15px;
-      min-height: 45px;
-      padding: 10px;
-      border: 1px dashed #007bff;
-      border-radius: 6px;
-      background: #eef6ff;
-    }
-    .message-securite {
-      font-size: 12px;
-      color: #555;
-      margin-top: 12px;
-      font-style: italic;
-    }
-  </style>
+/* ––––– MAIN ––––– */
+main{
+max-width:1040px;
+margin:0 auto;
+padding:56px 24px 90px;
+}
+
+.matiere{
+margin-bottom:44px;
+background:#ffffff;
+border-radius:20px;
+padding:28px 28px 20px;
+box-shadow:0 2px 8px rgba(22,27,51,0.04), 0 12px 32px -12px rgba(22,27,51,0.08);
+border:1px solid var(–ligne);
+position:relative;
+overflow:hidden;
+}
+.matiere::before{
+content:””;
+position:absolute;
+left:0; top:0; bottom:0;
+width:6px;
+}
+.maths::before{background:linear-gradient(180deg, var(–bleu), #6C9BFF);}
+.pc::before{background:linear-gradient(180deg, var(–orange), var(–jaune));}
+.svt::before{background:linear-gradient(180deg, var(–vert), #6BE0B8);}
+.francais::before{background:linear-gradient(180deg, var(–violet), var(–rose));}
+
+.matiere-entete{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:20px;
+padding-bottom:16px;
+border-bottom:2px dashed var(–ligne);
+}
+.onglet{
+display:flex;
+align-items:center;
+justify-content:center;
+width:42px;height:42px;
+border-radius:12px;
+flex-shrink:0;
+font-size:19px;
+}
+.matiere-titre{
+font-family:Georgia,‘Times New Roman’,serif;
+font-weight:600;
+font-size:24px;
+margin:0;
+color:var(–ardoise);
+}
+.matiere-sous{
+font-size:12px;
+color:#8B87A8;
+font-weight:600;
+margin-left:auto;
+background:var(–craie);
+padding:5px 12px;
+border-radius:100px;
+}
+
+.sommaire{
+list-style:none;
+margin:0;
+padding:0;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+gap:10px;
+}
+.chapitre-lien{
+display:flex;
+align-items:center;
+gap:12px;
+padding:14px 14px;
+text-decoration:none;
+color:var(–texte);
+transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+border-radius:12px;
+background:var(–craie);
+border:1px solid transparent;
+}
+.chapitre-lien:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 20px -8px rgba(22,27,51,0.18);
+}
+.chap-num{
+font-family:Georgia,‘Times New Roman’,serif;
+font-size:13px;
+font-weight:600;
+color:#fff;
+min-width:26px;
+height:26px;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-shrink:0;
+}
+.chap-nom{
+font-size:14px;
+font-weight:600;
+flex:1;
+}
+.chap-fleche{
+opacity:0;
+transform:translateX(-4px);
+transition:all .15s ease;
+font-size:14px;
+font-weight:700;
+}
+.chapitre-lien:hover .chap-fleche{
+opacity:1;
+transform:translateX(0);
+}
+
+/* couleurs par matière */
+.maths .onglet{background:linear-gradient(135deg, var(–bleu), #6C9BFF);}
+.maths .chapitre-lien:hover{background:rgba(61,111,242,0.08);}
+.maths .chap-num{background:var(–bleu);}
+.maths .chap-fleche{color:var(–bleu);}
+
+.pc .onglet{background:linear-gradient(135deg, var(–orange), var(–jaune));}
+.pc .chapitre-lien:hover{background:rgba(255,138,61,0.10);}
+.pc .chap-num{background:var(–orange);}
+.pc .chap-fleche{color:var(–orange);}
+
+.svt .onglet{background:linear-gradient(135deg, var(–vert), #6BE0B8);}
+.svt .chapitre-lien:hover{background:rgba(18,184,134,0.10);}
+.svt .chap-num{background:var(–vert);}
+.svt .chap-fleche{color:var(–vert);}
+
+.francais .onglet{background:linear-gradient(135deg, var(–violet), var(–rose));}
+.francais .chapitre-lien:hover{background:rgba(155,93,229,0.10);}
+.francais .chap-num{background:var(–violet);}
+.francais .chap-fleche{color:var(–violet);}
+
+footer{
+text-align:center;
+padding:30px 24px 46px;
+font-size:13px;
+color:#948C7E;
+}
+
+@media(max-width:600px){
+.sommaire{grid-template-columns:1fr;}
+header.hero{padding:48px 20px 42px;}
+}
+</style>
+
 </head>
 <body>
 
-  <header>
-    <h1>Objectif Brevet : Maths 3ème</h1>
-    <p>Exercices gratuits et corrigés payants pour réussir ton brevet</p>
-  </header>
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Révision Brevet des collèges</span>
+    <h1 class="titre">Bienvenue dans ta <em>salle de révision</em>.</h1>
+    <p class="hero-msg">Choisis ta matière, puis ton chapitre : les fiches et exercices de ta classe de 3ème t'attendent, prêts à être téléchargés.</p>
+  </div>
+</header>
 
-  <main>
-    <section class="section-chapitre">
-      <h2 class="titre-chapitre">Chapitre 1 : Racines carrées</h2>
+<main>
 
-      <div class="grille-exercices">
-        
-        <!-- Exercice Gratuit -->
-        <article class="carte-exercice">
-          <h3>Td1</h3>
-          <!-- CORRECTION ICI : Utilisation du protocole local de Koder -->
-          <a href="Td.pdf" class="btn-telechargement-gratuit">
-              📥 Télécharger gratuitement Td1
-          </a>
-        </article>
+  <section class="matiere maths">
+    <div class="matiere-entete">
+      <span class="onglet">📐</span>
+      <h2 class="matiere-titre">Mathématiques</h2>
+      <span class="matiere-sous">10 chapitres</span>
+    </div>
+    <ul class="sommaire">
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">01</span><span class="chap-nom">Racines carrées</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">02</span><span class="chap-nom">Calcul littéral</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">03</span><span class="chap-nom">Équations et inéquations</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">04</span><span class="chap-nom">Systèmes d'équations</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">05</span><span class="chap-nom">Fonctions</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">06</span><span class="chap-nom">Statistiques</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">07</span><span class="chap-nom">Théorème de Thalès</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">08</span><span class="chap-nom">Trigonométrie</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">09</span><span class="chap-nom">Repérage dans le plan</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">10</span><span class="chap-nom">Géométrie dans l'espace</span><span class="chap-fleche">→</span></a></li>
+    </ul>
+  </section>
 
-        <!-- Corrigé Payant -->
-        <article class="carte-exercice">
-          <h3>Corrigé td1</h3>
-          
-          <div class="zone-paiement-paypal">
-              <div id="paypal-container-LN5LVLLECTER8"></div>
-              <script>
-                paypal.HostedButtons({
-                  hostedButtonId: "LN5LVLLECTER8",
-                }).render("#paypal-container-LN5LVLLECTER8")
-              </script>
-          </div>
+  <section class="matiere pc">
+    <div class="matiere-entete">
+      <span class="onglet">⚗️</span>
+      <h2 class="matiere-titre">Physique-Chimie</h2>
+      <span class="matiere-sous">6 chapitres</span>
+    </div>
+    <ul class="sommaire">
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">01</span><span class="chap-nom">Structure de l'atome</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">02</span><span class="chap-nom">Les ions et les tests</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">03</span><span class="chap-nom">Circuits électriques</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">04</span><span class="chap-nom">Puissance et énergie électrique</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">05</span><span class="chap-nom">Mouvement et vitesse</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">06</span><span class="chap-nom">Lumière et couleurs</span><span class="chap-fleche">→</span></a></li>
+    </ul>
+  </section>
 
-          <p class="message-securite">Paiement 100% sécurisé via PayPal</p>
-        </article>
+  <section class="matiere svt">
+    <div class="matiere-entete">
+      <span class="onglet">🌿</span>
+      <h2 class="matiere-titre">SVT</h2>
+      <span class="matiere-sous">5 chapitres</span>
+    </div>
+    <ul class="sommaire">
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">01</span><span class="chap-nom">Reproduction humaine</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">02</span><span class="chap-nom">Système nerveux</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">03</span><span class="chap-nom">Génétique et hérédité</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">04</span><span class="chap-nom">Immunologie</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">05</span><span class="chap-nom">Risques géologiques</span><span class="chap-fleche">→</span></a></li>
+    </ul>
+  </section>
 
-      </div>
-    </section>
-  </main>
+  <section class="matiere francais">
+    <div class="matiere-entete">
+      <span class="onglet">📖</span>
+      <h2 class="matiere-titre">Français</h2>
+      <span class="matiere-sous">4 chapitres</span>
+    </div>
+    <ul class="sommaire">
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">01</span><span class="chap-nom">Grammaire et conjugaison</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">02</span><span class="chap-nom">Le récit et l'autobiographie</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">03</span><span class="chap-nom">La poésie engagée</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="#"><span class="chap-num">04</span><span class="chap-nom">Rédaction et argumentation</span><span class="chap-fleche">→</span></a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  Objectif Brevet — Fiches conçues pour la classe de 3ème
+</footer>
 
 </body>
 </html>
