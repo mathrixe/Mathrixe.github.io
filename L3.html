@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Équations et inéquations — Objectif Brevet Maths 3ème</title>
+
+  <!-- Script PayPal -->
+
+ <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAA7FRKxkk2hcf72Xe19ILxOWNUaWCOGnI9ouWqz7aPHx_GYQrifKFpaf2uVhEj_WRYCMCDilcBlVKAdPw&components=hosted-buttons&disable-funding=venmo&currency=USD">
+</script>
+
+  <style>
+    :root{
+      --ardoise:#161B33;
+      --craie:#F5F3FB;
+      --bleu:#3D6FF2;
+      --orange:#FF8A3D;
+      --vert:#12B886;
+      --jaune:#FFC93D;
+      --ligne:#E4E1F5;
+      --texte:#242138;
+      --blanc:#FFFFFF;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      background:var(--craie);
+      color:var(--texte);
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* ---------- HEADER ---------- */
+    header{
+      background:linear-gradient(135deg, #1A1440 0%, #161B33 55%, #0F1226 100%);
+      color:var(--blanc);
+      text-align:left;
+      padding:44px 24px 38px;
+      position:relative;
+      overflow:hidden;
+    }
+    header::after{
+      content:"";
+      position:absolute;
+      right:-50px; top:-50px;
+      width:220px; height:220px;
+      border:2px solid rgba(255,255,255,0.10);
+      border-radius:50%;
+      pointer-events:none;
+    }
+    .header-inner{
+      max-width:900px;
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+    .fil-retour{
+      display:inline-block;
+      font-size:13px;
+      color:#C9CBE8;
+      text-decoration:none;
+      margin-bottom:18px;
+    }
+    .fil-retour:hover{color:var(--jaune);}
+    .badge-chapitre{
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--jaune);
+      font-weight:700;
+      background:rgba(255,201,61,0.15);
+      border:1px solid rgba(255,201,61,0.4);
+      padding:5px 13px;
+      border-radius:100px;
+      display:inline-block;
+      margin-bottom:14px;
+    }
+    header h1{
+      margin:0;
+      font-family:Georgia,'Times New Roman',serif;
+      font-weight:700;
+      font-size:30px;
+      color:var(--blanc);
+    }
+    header p{
+      margin-top:10px;
+      font-size:15px;
+      color:#C9CBE8;
+      max-width:520px;
+    }
+
+    /* ---------- MAIN ---------- */
+    main{
+      max-width:900px;
+      margin:0 auto;
+      padding:36px 20px 80px;
+    }
+
+    .bloc-td{
+      background:var(--blanc);
+      border-radius:18px;
+      padding:24px 22px;
+      margin-bottom:28px;
+      box-shadow:0 10px 28px -14px rgba(22,27,51,0.20);
+      border:1px solid var(--ligne);
+    }
+    .td-titre{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:0 0 18px;
+      padding-bottom:14px;
+      border-bottom:2px dashed var(--ligne);
+    }
+    .td-numero{
+      width:34px; height:34px;
+      border-radius:10px;
+      background:var(--bleu);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family:Georgia,'Times New Roman',serif;
+      font-weight:700;
+      font-size:15px;
+      flex-shrink:0;
+    }
+    .td-titre h2{
+      margin:0;
+      font-size:19px;
+      font-weight:700;
+      color:var(--ardoise);
+    }
+
+    .grille-exercices{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+    }
+    .carte-exercice{
+      background:#F7F6FC;
+      border:1px solid #ECEAF6;
+      border-radius:14px;
+      padding:20px;
+      flex:1;
+      min-width:240px;
+      text-align:center;
+    }
+    .carte-exercice h3{
+      font-size:15px;
+      margin:0 0 14px;
+      color:var(--ardoise);
+      font-weight:700;
+    }
+
+    .btn-telechargement-gratuit{
+      display:inline-block;
+      background:var(--vert);
+      color:white;
+      padding:11px 18px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .zone-paiement-paypal{
+      margin-top:4px;
+      padding:4px;
+    }
+    .options-paiement{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:6px;
+    }
+    .btn-wave{
+      display:inline-block;
+      background:#00C2FF;
+      color:white;
+      padding:11px 15px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      border:none;
+    }
+    .btn-paypal{
+      display:inline-block;
+      background:#003087;
+      color:white;
+      padding:11px 15px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      border:none;
+    }
+    .separateur-ou{
+      font-size:11px;
+      color:#A8A4BE;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-weight:600;
+    }
+    .message-securite{
+      font-size:12px;
+      color:#8B87A8;
+      margin-top:12px;
+      font-style:italic;
+      line-height:1.5;
+    }
+    .message-securite a{
+      color:var(--bleu);
+      font-weight:700;
+    }
+  </style>
+
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="fil-retour">← Retour aux matières</a>
+      <span class="badge-chapitre">Chapitre 3 · Mathématiques 3ème</span>
+      <h1>Équations et systèmes d'équations du 1er degré à deux inconnues</h1>
+      <p>Exercices gratuits et corrigés détaillés pour t'entraîner avant le brevet.</p>
+    </div>
+  </header>
+
+  <main>
+
+```
+<div class="bloc-td">
+  <div class="td-titre">
+    <span class="td-numero">1</span>
+    <h2>Travaux dirigés n°1</h2>
+  </div>
+  <div class="grille-exercices">
+
+    <article class="carte-exercice">
+      <h3>Td1</h3>
+      <a href="L3.pdf" class="btn-telechargement-gratuit">
+        📥 Télécharger gratuitement Td1
+      </a>
+    </article>
+
+    <article class="carte-exercice">
+      <h3>Corrigé Td1</h3>
+
+      <div class="zone-paiement-paypal">
+        <div class="options-paiement">
+
+          <a href="https://pay.wave.com/m/M_sn_YVCEgwl2HEe0/c/sn/"
+             class="btn-wave" target="_blank" rel="noopener">
+            🌊 Payer avec Wave — 250 FCFA
+          </a>
+
+          <span class="separateur-ou">ou</span>
+
+          <div id="paypal-container-9UTCDZ6XNAKA6"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "9UTCDZ6XNAKA6",
+  }).render("#paypal-container-9UTCDZ6XNAKA6")
+</script>
+
+        </div>
+      </div>
+
+      <p class="message-securite">Paiement 100% sécurisé via PayPal</p>
+      <p class="message-securite">
+        Si vous choisissez de payer par Wave, merci de faire une capture d'écran de votre reçu en précisant le nom du fichier acheté à l'adresse suivante :
+        <a href="mailto:mathrixe01@gmail.com?subject=Preuve%20de%20paiement%20Wave&body=Bonjour%2C%0A%0AVoici%20la%20capture%20d%27%C3%A9cran%20de%20mon%20re%C3%A7u%20Wave%20pour%20le%20fichier%20%3A%20%5Bnom%20du%20fichier%5D.">mathrixe01@gmail.com</a>
+      </p>
+    </article>
+
+  </div>
+</div>
+```
+
+  </main>
+
+</body>
+</html>
