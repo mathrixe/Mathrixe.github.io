@@ -1,231 +1,247 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Objectif Brevet — Classe de 3ème</title>
 <style>
-  :root{
-    --ardoise:#161B33;
-    --craie:#F5F3FB;
-    --bleu:#3D6FF2;
-    --orange:#FF8A3D;
-    --vert:#12B886;
-    --violet:#9B5DE5;
-    --rose:#F5399C;
-    --jaune:#FFC93D;
-    --ligne:#E4E1F5;
-    --texte:#242138;
-    --blanc:#FFFFFF;
+  :root {
+    --ardoise: #161B33;
+    --craie: #F8F9FD;
+    --bleu: #3D6FF2;
+    --orange: #FF8A3D;
+    --vert: #12B886;
+    --violet: #9B5DE5;
+    --rose: #F5399C;
+    --jaune: #FFC93D;
+    --ligne: #EBE8F9;
+    --texte: #242138;
+    --blanc: #FFFFFF;
   }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--craie);
-    color:var(--texte);
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--craie);
+    color: var(--texte);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 
-/* ––––– HERO ––––– */
-header.hero{
-background:linear-gradient(135deg, #1A1440 0%, #161B33 55%, #0F1226 100%);
-padding:64px 24px 56px;
-position:relative;
-overflow:hidden;
+/* ––––– HERO BANNER ––––– */
+header.hero {
+  background: linear-gradient(135deg, #130F35 0%, #1A1F3D 60%, #0B0D1A 100%);
+  padding: 80px 24px 72px;
+  position: relative;
+  overflow: hidden;
 }
-header.hero::after{
-content:””;
-position:absolute;
-right:-60px; top:-60px;
-width:280px; height:280px;
-border:2px solid rgba(255,255,255,0.10);
-border-radius:50%;
-pointer-events:none;
+header.hero::after {
+  content: "";
+  position: absolute;
+  right: -40px; top: -40px;
+  width: 320px; height: 320px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 50%;
+  pointer-events: none;
 }
-header.hero::before{
-content:””;
-position:absolute;
-left:-40px; bottom:-90px;
-width:220px; height:220px;
-background:rgba(155,93,229,0.30);
-border-radius:50%;
-pointer-events:none;
+header.hero::before {
+  content: "";
+  position: absolute;
+  left: -50px; bottom: -50px;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(155,93,229,0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
-.hero-inner{
-max-width:920px;
-margin:0 auto;
-position:relative;
-z-index:1;
+.hero-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
-.eyebrow{
-font-size:13px;
-letter-spacing:.14em;
-text-transform:uppercase;
-color:#FFC93D;
-font-weight:700;
-margin-bottom:18px;
-display:inline-block;
-background:rgba(255,201,61,0.15);
-padding:6px 14px;
-border-radius:100px;
-border:1px solid rgba(255,201,61,0.4);
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #FFC93D;
+  font-weight: 700;
+  margin-bottom: 20px;
+  display: inline-block;
+  background: rgba(255,201,61,0.1);
+  padding: 6px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,201,61,0.25);
 }
-h1.titre{
-font-family:Georgia,‘Times New Roman’,serif;
-font-weight:700;
-font-size:38px;
-line-height:1.15;
-margin:0 0 20px;
-color:#FFFFFF;
+h1.titre {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.15;
+  margin: 0 0 16px;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
 }
-h1.titre em{
-font-style:italic;
-color:#FFC93D;
+h1.titre em {
+  font-style: italic;
+  color: #FFC93D;
 }
-.hero-msg{
-font-size:17px;
-line-height:1.6;
-max-width:560px;
-color:#E4E1F5;
-margin:0;
-}
-
-/* ––––– MAIN ––––– */
-main{
-max-width:1040px;
-margin:0 auto;
-padding:44px 20px 90px;
+.hero-msg {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 600px;
+  color: #D1CCE7;
+  font-weight: 400;
 }
 
-.matiere{
-margin-bottom:36px;
-background:var(–blanc);
-border-radius:18px;
-padding:24px 22px 18px;
-box-shadow:0 10px 28px -14px rgba(22,27,51,0.25);
-border:1px solid var(–ligne);
-position:relative;
-overflow:hidden;
-}
-.matiere-barre{
-position:absolute;
-left:0; top:0; bottom:0;
-width:6px;
-}
-.maths .matiere-barre{background:var(–bleu);}
-.pc .matiere-barre{background:var(–orange);}
-.svt .matiere-barre{background:var(–vert);}
-.francais .matiere-barre{background:var(–violet);}
-
-.matiere-entete{
-display:flex;
-align-items:center;
-gap:14px;
-margin-bottom:18px;
-padding-bottom:14px;
-border-bottom:2px dashed var(–ligne);
-}
-.onglet{
-display:flex;
-align-items:center;
-justify-content:center;
-width:40px;height:40px;
-border-radius:11px;
-flex-shrink:0;
-font-size:19px;
-}
-.maths .onglet{background:#E7EEFF;}
-.pc .onglet{background:#FFEDDD;}
-.svt .onglet{background:#DFF7EE;}
-.francais .onglet{background:#F1E6FA;}
-
-.matiere-titre{
-font-family:Georgia,‘Times New Roman’,serif;
-font-weight:700;
-font-size:22px;
-margin:0;
-color:var(–ardoise);
-}
-.matiere-sous{
-font-size:12px;
-color:#8B87A8;
-font-weight:700;
-margin-left:auto;
-background:var(–craie);
-padding:5px 12px;
-border-radius:100px;
-white-space:nowrap;
+/* ––––– ZONE PRINCIPALE ––––– */
+main {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 50px 20px 80px;
 }
 
-.sommaire{
-list-style:none;
-margin:0;
-padding:0;
-display:grid;
-grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-gap:10px;
+.matiere {
+  margin-bottom: 40px;
+  background: var(--blanc);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 15px 35px -15px rgba(22,27,51,0.08), 0 4px 12px -4px rgba(22,27,51,0.02);
+  border: 1px solid var(--ligne);
+  position: relative;
+  overflow: hidden;
 }
-.chapitre-lien{
-display:flex;
-align-items:center;
-gap:10px;
-padding:13px 14px;
-text-decoration:none;
-color:var(–texte);
-border-radius:11px;
-background:#F7F6FC;
-border:1px solid #ECEAF6;
+.matiere-barre {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
 }
-.chap-num{
-font-family:Georgia,‘Times New Roman’,serif;
-font-size:12px;
-font-weight:700;
-color:#fff;
-min-width:24px;
-height:24px;
-border-radius:7px;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-shrink:0;
-}
-.maths .chap-num{background:var(–bleu);}
-.pc .chap-num{background:var(–orange);}
-.svt .chap-num{background:var(–vert);}
-.francais .chap-num{background:var(–violet);}
+.maths .matiere-barre { background: var(--bleu); }
+.pc .matiere-barre { background: var(--orange); }
+.svt .matiere-barre { background: var(--vert); }
+.francais .matiere-barre { background: var(--violet); }
 
-.chap-nom{
-font-size:14px;
-font-weight:600;
-flex:1;
-color:var(–texte);
+.matiere-entete {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ligne);
 }
-.chap-fleche{
-font-size:14px;
-font-weight:700;
+.onglet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  font-size: 22px;
+  box-shadow: inset 0 -2px 4px rgba(0,0,0,0.04);
 }
-.maths .chap-fleche{color:var(–bleu);}
-.pc .chap-fleche{color:var(–orange);}
-.svt .chap-fleche{color:var(–vert);}
-.francais .chap-fleche{color:var(–violet);}
+.maths .onglet { background: #EAF0FF; }
+.pc .onglet { background: #FFF0E4; }
+.svt .onglet { background: #E6F9F2; }
+.francais .onglet { background: #F4EBFC; }
 
-footer{
-text-align:center;
-padding:30px 24px 46px;
-font-size:13px;
-color:#948C7E;
+.matiere-titre {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--ardoise);
+}
+.matiere-sous {
+  font-size: 11px;
+  color: #726E91;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-left: auto;
+  background: var(--craie);
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--ligne);
+  white-space: nowrap;
+}
+
+/* ––––– GRILLE ET LIENS DE CHAPITRES ––––– */
+.sommaire {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.chapitre-lien {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: #F9F8FD;
+  border: 1px solid #EEECF6;
+  border-radius: 16px;
+  text-decoration: none;
+  color: var(--texte);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.25s ease, box-shadow 0.25s ease;
+}
+.chapitre-lien:hover {
+  background: var(--blanc);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -10px rgba(22,27,51,0.12);
+  border-color: rgba(61,111,242,0.2);
+}
+.chap-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFFFFF;
+  width: 28px; height: 28px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px -2px rgba(0,0,0,0.1);
+}
+.maths .chap-num { background: var(--bleu); }
+.pc .chap-num { background: var(--orange); }
+.svt .chap-num { background: var(--vert); }
+.francais .chap-num { background: var(--violet); }
+
+.chap-nom {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  flex: 1;
+  color: var(--texte);
+}
+.chap-fleche {
+  font-size: 16px;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+.chapitre-lien:hover .chap-fleche {
+  transform: translateX(4px);
+}
+.maths .chap-fleche { color: var(--bleu); }
+.pc .chap-fleche { color: var(--orange); }
+.svt .chap-fleche { color: var(--vert); }
+.francais .chap-fleche { color: var(--violet); }
+
+footer {
+  text-align: center;
+  padding: 40px 24px 60px;
+  font-size: 13px;
+  color: #837E9F;
+  border-top: 1px solid var(--ligne);
+  background: var(--blanc);
 }
 
 @media(max-width:600px){
-.sommaire{grid-template-columns:1fr;}
-header.hero{padding:48px 20px 42px;}
-h1.titre{font-size:30px;}
+  .sommaire { grid-template-columns: 1fr; }
+  header.hero { padding: 56px 20px 48px; }
+  .matiere { padding: 20px; }
+  .matiere-entete { flex-wrap: wrap; gap: 10px; }
+  .matiere-sous { margin-left: 44px; width: calc(100% - 44px); text-align: center; }
 }
 </style>
-
 </head>
 <body>
 
@@ -233,36 +249,31 @@ h1.titre{font-size:30px;}
   <div class="hero-inner">
     <span class="eyebrow">Révision Brevet des collèges</span>
     <h1 class="titre">Bienvenue dans ta <em>salle de révision</em>.</h1>
-    <p class="hero-msg">Choisis 
-ton chapitre : les séries d'exercices de ta classe de 3ème ainsi que leur corrigé t'attendent, prêts à être téléchargés.</p>
+    <p class="hero-msg">Choisis ton chapitre : les séries d'exercices de ta classe de 3ème ainsi que leur corrigé t'attendent, prêts à être téléchargés.</p>
   </div>
 </header>
 
 <main>
-
   <section class="matiere maths">
     <span class="matiere-barre"></span>
     <div class="matiere-entete">
       <span class="onglet">📐</span>
-      <h2 class="matiere-titre">Programme de mathématiques </h2>
+      <h2 class="matiere-titre">Mathématiques</h2>
       <span class="matiere-sous">13 chapitres</span>
     </div>
+    
     <ul class="sommaire">
       <li><a class="chapitre-lien" href="RC.html"><span class="chap-num">01</span><span class="chap-nom">Racines carrées</span><span class="chap-fleche">→</span></a></li>
-      <li><a class="chapitre-lien" href="L2.html"><span class="chap-num">02</span><span class="chap-nom">Equations et inéquations du 1er degré à deux inconnues</span><span class="chap-fleche">→</span></a></li>
-      <li><a class="chapitre-lien" href="L3.html"><span class="chap-num">03</span><span class="chap-nom">Équations et systèmes d'équations du 1er degré à deux inconnues </span><span class="chap-fleche">→</span></a></li>
-      <li><a class="chapitre-lien" href="L4.html"><span class="chap-num">04</span><span class="chap-nom">Inéquations et systèmes d'inéquations du 1er degré à deux inconnues</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="L2.html"><span class="chap-num">02</span><span class="chap-nom">Équations et inéquations du 1er degré</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="L3.html"><span class="chap-num">03</span><span class="chap-nom">Systèmes d'équations du 1er degré</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="L4.html"><span class="chap-num">04</span><span class="chap-nom">Systèmes d'inéquations du 1er degré</span><span class="chap-fleche">→</span></a></li>
       <li><a class="chapitre-lien" href="L5.html"><span class="chap-num">05</span><span class="chap-nom">Applications affines</span><span class="chap-fleche">→</span></a></li>
       <li><a class="chapitre-lien" href="L6.html"><span class="chap-num">06</span><span class="chap-nom">Statistiques</span><span class="chap-fleche">→</span></a></li>
       <li><a class="chapitre-lien" href="L7.html"><span class="chap-num">07</span><span class="chap-nom">Théorème de Thalès</span><span class="chap-fleche">→</span></a></li>
-        <li><a class="chapitre-lien" href="L8.html"><span class="chap-num">08</span><span class="chap-nom">Angles inscrits angles au centre</span><span class="chap-fleche">→</span></a></li>
-
-         <li><a class="chapitre-lien" href="L9.html"><span class="chap-num">09</span><span class="chap-nom">Trigonométrie</span><span class="chap-fleche">→</span></a></li>
-
+      <li><a class="chapitre-lien" href="L8.html"><span class="chap-num">08</span><span class="chap-nom">Angles inscrits & angles au centre</span><span class="chap-fleche">→</span></a></li>
+      <li><a class="chapitre-lien" href="L9.html"><span class="chap-num">09</span><span class="chap-nom">Trigonométrie</span><span class="chap-fleche">→</span></a></li>
       <li><a class="chapitre-lien" href="L10.html"><span class="chap-num">10</span><span class="chap-nom">Vecteurs</span><span class="chap-fleche">→</span></a></li>
-       <li><a class="chapitre-lien" href="L11.html"><span class="chap-num">11</span><span class="chap-nom">Transformations du plan</span><span class="chap-fleche">→</span></a></li>
-
-
+      <li><a class="chapitre-lien" href="L11.html"><span class="chap-num">11</span><span class="chap-nom">Transformations du plan</span><span class="chap-fleche">→</span></a></li>
       <li><a class="chapitre-lien" href="L12.html"><span class="chap-num">12</span><span class="chap-nom">Repérage dans le plan</span><span class="chap-fleche">→</span></a></li>
       <li><a class="chapitre-lien" href="L13.html"><span class="chap-num">13</span><span class="chap-nom">Géométrie dans l'espace</span><span class="chap-fleche">→</span></a></li>
     </ul>
